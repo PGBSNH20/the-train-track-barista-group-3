@@ -15,8 +15,12 @@ namespace TrainConsole
             // Make the trains run in treads
 
 
-           
+           Train[] a = Train.GetPassenger();
             
+            foreach (var item in a)
+	        {
+                Console.WriteLine(item.TrainName);
+	        }
 
             Console.ReadKey();
         }

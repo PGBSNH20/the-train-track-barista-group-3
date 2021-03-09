@@ -8,7 +8,7 @@ namespace TrainConsole
 {
     class Schedule
     {
-        public Train TrainId { get; set; }
+        public Station TrainId { get; set; }
         public Station StationId { get; set; }
         public DateTime DepartureTime { get; set; }
         public DateTime ArrivalTime { get; set; }

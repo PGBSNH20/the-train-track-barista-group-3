@@ -16,20 +16,20 @@ namespace TrainConsole
 
         const string FilePath = @"C:\Users\doman\OneDrive\Desktop\RailWayProject\Source\TrainConsole\Data\trains.txt";
 
-        //public Train(int trainid, string trainname, int maxspeed, bool operated)
-        //{
-        //    TrainId = trainid;
-        //    TrainName = trainname;
-        //    MaxSpeed = maxspeed;
-        //    Operated = operated;
-        //}
+        public Train(int trainid, string trainname, int maxspeed, bool operated)
+        {
+            TrainId = trainid;
+            TrainName = trainname;
+            MaxSpeed = maxspeed;
+            Operated = operated;
+        }
 
 
 
         public static Train CreateFromLine(string line)
         {
             string[] parts = line.Split(',');
-            Train p = new Train
+            Train p = new Train(int.Parse(parts[0]), parts[1], int.Parse(parts[2]), bool.Parse(parts[3]))
             {
                 TrainId = int.Parse(parts[0]),
                 TrainName = parts[1],

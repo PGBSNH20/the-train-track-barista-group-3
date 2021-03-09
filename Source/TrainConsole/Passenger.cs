@@ -15,17 +15,17 @@ namespace TrainConsole
 
         const string FilePath = @"C:\Users\doman\OneDrive\Desktop\RailWayProject\Source\TrainConsole\Data\passengers.txt";
 
-        //public Passenger(int passengerid , string firstname,string lastname)
-        //{
-        //    PassengerId = passengerid;
-        //    FirstName = firstname;
-        //    LastName = lastname;
-        //}
+        public Passenger(int passengerid, string firstname, string lastname)
+        {
+            PassengerId = passengerid;
+            FirstName = firstname;
+            LastName = lastname;
+        }
 
         public static Passenger CreateFromLine(string line)
         {
             string[] parts = line.Split(',');
-            Passenger p = new Passenger
+            Passenger p = new Passenger(int.Parse(parts[0]), parts[1], parts[2])
             {
                 PassengerId = int.Parse(parts[0]),
                 FirstName = parts[1],
