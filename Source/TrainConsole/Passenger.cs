@@ -24,6 +24,7 @@ namespace TrainConsole
 
         public static Passenger CreateFromLine(string line)
         {
+
             string[] parts = line.Split(',');
             Passenger p = new Passenger(int.Parse(parts[0]), parts[1], parts[2])
             {

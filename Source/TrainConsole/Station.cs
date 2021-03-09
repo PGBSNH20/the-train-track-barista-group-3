@@ -35,7 +35,7 @@ namespace TrainConsole
             return p;
         }
 
-        public static Station[] GetPassenger()
+        public static Station[] GetStation()
         {
             List<Station> ListOfTrains = new List<Station>();
             string[] lines = File.ReadAllLines(FilePath);

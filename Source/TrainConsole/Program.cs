@@ -6,7 +6,7 @@ namespace TrainConsole
     {
         static void Main(string[] args)
         {
-           // Console.WriteLine("Train track!");
+            // Console.WriteLine("Train track!");
             // Step 1:
             // Parse the traintrack (Data/traintrack.txt) using ORM (see suggested code)
             // Parse the trains (Data/trains.txt)
@@ -14,13 +14,15 @@ namespace TrainConsole
             // Step 2:
             // Make the trains run in treads
 
+            //string timee = "15:25";
+            //TimeSpan time = TimeSpan.Parse(timee);
 
-           Train[] a = Train.GetPassenger();
+
+           
+
+           
             
-            foreach (var item in a)
-	        {
-                Console.WriteLine(item.TrainName);
-	        }
+            Console.WriteLine();
 
             Console.ReadKey();
         }

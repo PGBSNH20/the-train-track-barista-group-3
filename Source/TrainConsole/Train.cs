@@ -39,7 +39,7 @@ namespace TrainConsole
             return p;
         }
 
-        public static Train[] GetPassenger()
+        public static Train[] GetTrain()
         {
             List<Train> ListOfTrains = new List<Train>();
             string[] lines = File.ReadAllLines(FilePath);
