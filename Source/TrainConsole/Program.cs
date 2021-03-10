@@ -1,4 +1,5 @@
 ﻿using System;
+using TrainEngine;
 
 namespace TrainConsole
 {
@@ -18,19 +19,26 @@ namespace TrainConsole
             // Step 2:
             // Make the trains run in treads
 
-            //string timee = "15:25";
+            //string timee = "null";
             //TimeSpan time = TimeSpan.Parse(timee);
 
+            DateTime dt = DateTime.Now;
 
-            Passenger.GetPassenger();
+           
+
+           
+           // Console.WriteLine(dt.ToShortTimeString());
+
+            ClockSimulator a = new ClockSimulator(1000,600);
+
+            a.SetTime("");
+            a.StartClock();
+            a.RunClock();
+            a.PrintClock();
+           
+            
             
 
-            foreach (var item in Passenger.GetPassenger())
-            {
-                Console.WriteLine(item.FirstName+item.LastName);
-            }
-            
-            Console.WriteLine();
 
             Console.ReadKey();
         }

@@ -21,8 +21,6 @@ namespace TrainEngine
             }
         }
 
-
-
         public void AddPassengers(int amount)
         {
             passengerAmount += amount;

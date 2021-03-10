@@ -9,9 +9,10 @@ namespace TrainConsole
 {
     public class Station
     {
-        public int StationId { get; set; }
-        public string StationName { get; set; }
-        public bool EndStation { get; set; }
+        public int     StationId { get; set; }
+        public string  StationName { get; set; }
+        public bool    EndStation { get; set; }
+
         const string FilePath = @"C:\Users\doman\OneDrive\Desktop\RailWayProject\Source\TrainConsole\Data\stations.txt";
 
         public Station(int stationid, string stationname,  bool endstation)
