@@ -22,10 +22,12 @@ namespace TrainConsole
             LastName = lastname;
         }
 
+
+       
         public static Passenger CreateFromLine(string line)
         {
 
-            string[] parts = line.Split(',');
+            string[] parts = line.Split(',',':',' ');
             Passenger p = new Passenger(int.Parse(parts[0]), parts[1], parts[2])
             {
                 PassengerId = int.Parse(parts[0]),
@@ -35,7 +37,7 @@ namespace TrainConsole
             return p;
         }
 
-        public static  Passenger[] GetPassenger()
+        public static List<Passenger> GetPassenger()
         {
             List<Passenger> ListOfPassengers = new List<Passenger>();
              string[] lines = File.ReadAllLines(FilePath);
@@ -45,7 +47,7 @@ namespace TrainConsole
                 Passenger p = Passenger.CreateFromLine(line);
                 ListOfPassengers.Add(p);
             }
-            return ListOfPassengers.ToArray();
+            return ListOfPassengers;
         }
 
         //public void Print()

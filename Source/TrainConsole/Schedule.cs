@@ -38,7 +38,7 @@ namespace TrainConsole
             return p;
         }
 
-        public static Schedule[] GetSchedule()
+        public static List<Schedule> GetSchedule()
         {
             List<Schedule> ListOfTrains = new List<Schedule>();
             string[] lines = File.ReadAllLines(FilePath);
@@ -48,7 +48,7 @@ namespace TrainConsole
                 Schedule p = Schedule.CreateFromLine(line);
                 ListOfTrains.Add(p);
             }
-            return ListOfTrains.ToArray();
+            return ListOfTrains;
         }
     }
 }

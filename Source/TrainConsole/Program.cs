@@ -2,8 +2,12 @@
 
 namespace TrainConsole
 {
+
+    
     class Program
     {
+        
+
         static void Main(string[] args)
         {
             // Console.WriteLine("Train track!");
@@ -18,9 +22,13 @@ namespace TrainConsole
             //TimeSpan time = TimeSpan.Parse(timee);
 
 
-           
+            Passenger.GetPassenger();
+            
 
-           
+            foreach (var item in Passenger.GetPassenger())
+            {
+                Console.WriteLine(item.FirstName+item.LastName);
+            }
             
             Console.WriteLine();
 

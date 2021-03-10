@@ -35,7 +35,7 @@ namespace TrainConsole
             return p;
         }
 
-        public static Station[] GetStation()
+        public static List<Station> GetStation()
         {
             List<Station> ListOfTrains = new List<Station>();
             string[] lines = File.ReadAllLines(FilePath);
@@ -45,7 +45,7 @@ namespace TrainConsole
                 Station p = Station.CreateFromLine(line);
                 ListOfTrains.Add(p);
             }
-            return ListOfTrains.ToArray();
+            return ListOfTrains;
         }
 
 

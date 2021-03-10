@@ -1,5 +1,5 @@
-1,Misty,Walton
-2,Ianis,Hayes
+1,Misty:Walton
+2,Ianis Hayes
 3,Dominykas,Kidd
 4,Kali,Savage
 5,Mathew,Porter

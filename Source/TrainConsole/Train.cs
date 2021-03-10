@@ -39,7 +39,7 @@ namespace TrainConsole
             return p;
         }
 
-        public static Train[] GetTrain()
+        public static List<Train> GetTrain()
         {
             List<Train> ListOfTrains = new List<Train>();
             string[] lines = File.ReadAllLines(FilePath);
@@ -49,7 +49,7 @@ namespace TrainConsole
                 Train p = Train.CreateFromLine(line);
                 ListOfTrains.Add(p);
             }
-            return ListOfTrains.ToArray();
+            return ListOfTrains;
         }
 
         //public void Print()
