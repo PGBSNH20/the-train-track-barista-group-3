@@ -12,6 +12,9 @@ namespace TrainEngine
         public int secondsPerTick;
         public int milliSecPerTick;
         private bool Running=false;
+        
+
+
         public ClockSimulator(int milliecPertick , int secondspertick = 1, DateTime settime = new DateTime())
         {
             time = settime;
@@ -19,13 +22,13 @@ namespace TrainEngine
             secondsPerTick = secondspertick;
         }
 
-        public void SetTime(string timeToset)
+        public void SetTime(TimeSpan timeOfDay)
         {
-            
-            
-                TimeSpan time = TimeSpan.Parse(timeToset);
-                this.time = this.time.Date + time;
-            
+
+            time = time.Date + timeOfDay;
+            //TimeSpan time = TimeSpan.Parse(timeToset);
+            //this.time = this.time.Date + time;
+
 
             //time = time + timeToset;
         }
@@ -33,31 +36,28 @@ namespace TrainEngine
         public void StartClock()
         {
             Running = true;
+
             clockRun = new Thread(RunClock);
-            
+            clockRun.Name = "clockRunThread";
+            clockRun.Start();
         }
 
         public void RunClock()
-        {
-            for (int i = 0; i < 5; i++)
-            {
-                IncreaseSeconds(secondsPerTick);
-                Thread.Sleep(milliSecPerTick);
-            }
-                
-            
+        {           
+                while (Running)
+                {
+                    IncreaseSeconds(secondsPerTick);
+                    Thread.Sleep(milliSecPerTick);
+                }
+   
         }
-        public void IncreaseSeconds(int secondIncrease = 1)
-        {
-            if (secondIncrease < 1)
+        
+            private void IncreaseSeconds(int secondIncrease = 1)
             {
-                secondIncrease = 1;
+                if (secondIncrease < 1) secondIncrease = 1;
+                this.time = time.AddSeconds(secondIncrease);
             }
-            else
-            {
-                time = time.AddSeconds(secondIncrease);
-            }            
-        }
+        
 
         public void Stop()
         {
@@ -74,10 +74,10 @@ namespace TrainEngine
             return time.ToShortTimeString();
         }
 
-        public void PrintClock()
-        {
-            Console.WriteLine(TimeToString());
-        }
+        //public void PrintClock()
+        //{           
+        //  Console.WriteLine(TimeToString());                        
+        //}
 
         public bool IsRunning()
         {

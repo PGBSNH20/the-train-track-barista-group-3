@@ -1,0 +1,7 @@
+1|Stonecro|true
+2|Mount Juanceo|false
+3|Grand Retro|true
+4|Thielfic-In-Sladeno|false
+5|PortoRicko|false
+6|AmsterStation|false
+7|WeAre Here Station|true

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 
-namespace TrainConsole
+namespace TrainEngine
 {
     public class Station
     {
@@ -13,7 +13,7 @@ namespace TrainConsole
         public string  StationName { get; set; }
         public bool    EndStation { get; set; }
 
-        const string FilePath = @"C:\Users\doman\OneDrive\Desktop\RailWayProject\Source\TrainConsole\Data\stations.txt";
+        const string FilePath = @"C:\Users\doman\OneDrive\Desktop\Railway\Source\TrainEngine\Data\stations.txt";
 
         public Station(int stationid, string stationname,  bool endstation)
         {
@@ -26,7 +26,7 @@ namespace TrainConsole
 
         public static Station CreateFromLine(string line)
         {
-            string[] parts = line.Split(',');
+            string[] parts = line.Split('|');
             Station p = new Station(int.Parse(parts[0]), parts[1], bool.Parse(parts[2]))
             {
                 StationId = int.Parse(parts[0]),

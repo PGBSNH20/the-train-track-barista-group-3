@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TrainEngine
 {
-    interface IEngine
+    public interface IEngine
     {
 
         void Start();

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TrainEngine
 {
-    class PassengerCart : IPassengerCart
+   public class PassengerCart : IPassengerCart
     {
         private int passengerAmount;
 

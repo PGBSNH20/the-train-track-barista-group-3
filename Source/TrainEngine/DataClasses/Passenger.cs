@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 
-namespace TrainConsole
+namespace TrainEngine
 {
     public class Passenger
     {
@@ -13,7 +13,7 @@ namespace TrainConsole
         public string FirstName { get; set; }
         public string LastName { get; set; }
 
-        const string FilePath = @"C:\Users\doman\OneDrive\Desktop\RailWayProject\Source\TrainConsole\Data\passengers.txt";
+        const string FilePath = @"C:\Users\doman\OneDrive\Desktop\Railway\Source\TrainEngine\Data\passengers.txt";
 
         public Passenger(int passengerid, string firstname, string lastname)
         {

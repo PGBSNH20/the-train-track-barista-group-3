@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TrainEngine
 {
-    interface IPassengerCart
+    public interface IPassengerCart
     {
         void AddPassengers(int amount);
         void RemovePassengers(int amount);

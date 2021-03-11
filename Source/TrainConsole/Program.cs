@@ -1,5 +1,9 @@
 ﻿using System;
 using TrainEngine;
+using System.Collections.Generic;
+using System.Text;
+using System.Threading;
+using System.Linq;
 
 namespace TrainConsole
 {
@@ -8,7 +12,7 @@ namespace TrainConsole
     class Program
     {
         
-
+        
         static void Main(string[] args)
         {
             // Console.WriteLine("Train track!");
@@ -19,25 +23,54 @@ namespace TrainConsole
             // Step 2:
             // Make the trains run in treads
 
-            //string timee = "null";
-            //TimeSpan time = TimeSpan.Parse(timee);
 
-            DateTime dt = DateTime.Now;
+            // List<Train> train = Train.GetTrain();
 
+
+
+            // Console.WriteLine(dt.ToShortTimeString());
+
+            //ClockSimulator sim = new ClockSimulator(100, 60);
+            // sim.StartClock();
+
+
+            //TravelPlane plane = new TravelPlane();
+
+
+            //plane.OperateTrain(train[2]);
+
+            //for (int i = 0; i < 10; i++)
+            //{
+            //    Console.WriteLine("Hello" +i);
+            //    Thread.Sleep(500);
+            //}
+
+
+
+
+            // TravelPlane a = new TravelPlane().NewTrip(train1[1]).Start().
            
+            ClockSimulator sim = new ClockSimulator(100, 60);
+            sim.StartClock();
+            TravelPlane travel1 = new TravelPlane();
+            TravelPlane travel2 = new TravelPlane();
 
-           
-           // Console.WriteLine(dt.ToShortTimeString());
+            List<Train> train1 = Train.GetTrain();
+            List<Train> train2 = Train.GetTrain();
 
-            ClockSimulator a = new ClockSimulator(1000,600);
+            travel1.OperateTrain(train1[1]);
+            travel2.OperateTrain(train2[0]);
 
-            a.SetTime("");
-            a.StartClock();
-            a.RunClock();
-            a.PrintClock();
-           
-            
-            
+
+            //DateTime dt = DateTime.Now;
+
+            // dt.TimeOfDay;
+
+
+
+
+
+
 
 
             Console.ReadKey();
