@@ -50,13 +50,7 @@ namespace TrainEngine
             return ListOfPassengers;
         }
 
-        //public void Print()
-        //{
-        //    foreach (var item in Passenger.GetPassenger())
-        //    {
-        //        Console.WriteLine(item.PassengerId + ":" + item.FirstName + ":" + item.LastName);
-        //    }
-        //}
+        
 
     }
 }

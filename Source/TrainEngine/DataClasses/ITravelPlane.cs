@@ -9,12 +9,14 @@ namespace TrainEngine
         //void OperateTrain(Train train);
         //void Start(Train train, List<Schedule> timeTable, ClockSimulator clockSim);
 
+        ITravelPlane AddPassengerIdFromTo(int idFrom, int idTo, int trainId);
+        ITravelPlane PrintAllPassengers();
+
         ITravelPlane NewTrip(Train train);
 
-        //ITravelPlane Start(Train train, List<Schedule> timeTable, ClockSimulator clockSim);
-        ITravelPlane StopWhenDone(Train train, List<Schedule> timeTable, ClockSimulator clockSim);
 
-        TravelPlane TravelPlane();
+        //ITravelPlane Start(Train train, List<Schedule> timeTable, ClockSimulator clockSim);
+        
 
 
 

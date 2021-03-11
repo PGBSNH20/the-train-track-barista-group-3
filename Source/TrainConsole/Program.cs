@@ -58,15 +58,18 @@ namespace TrainConsole
             List<Train> train1 = Train.GetTrain();
             List<Train> train2 = Train.GetTrain();
 
-            travel1.OperateTrain(train1[1]);
-            travel2.OperateTrain(train2[0]);
+            //travel1.AddAllPassengerTo(2);
+            //travel1. OperateTrain(train1[1]);
+            //travel1.PrintAllPassengers();
+            //travel2.OperateTrain(train2[0]);
 
 
             //DateTime dt = DateTime.Now;
 
             // dt.TimeOfDay;
 
-
+            travel1.NewTrip(train1[1]).PrintAllPassengers();
+           
 
 
 
