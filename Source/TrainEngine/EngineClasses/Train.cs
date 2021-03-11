@@ -15,7 +15,7 @@ namespace TrainEngine
         public bool Operated { get; set; }
 
         public IEngine Engine;
-        public IPassengerCart PassengerCart;
+       
         
         
 
@@ -23,14 +23,14 @@ namespace TrainEngine
 
         const string FilePath = @"C:\Users\doman\OneDrive\Desktop\Railway\Source\TrainEngine\Data\trains.txt";
 
-        public Train(int trainid, string trainname, int maxspeed, bool operated, IEngine iEngin, IPassengerCart ipassengerCart)
+        public Train(int trainid, string trainname, int maxspeed, bool operated, IEngine iEngin)
         {
             TrainId = trainid;
             TrainName = trainname;
             MaxSpeed = maxspeed;
             Operated = operated;
             this.Engine = iEngin;
-            this.PassengerCart = ipassengerCart;
+           
         }
 
 
@@ -40,7 +40,7 @@ namespace TrainEngine
         public static Train CreateFromLine(string line)
         {
             string[] parts = line.Split(',');
-            Train p = new Train(int.Parse(parts[0]), parts[1], int.Parse(parts[2]), bool.Parse(parts[3]), new Engine(), new PassengerCart())
+            Train p = new Train(int.Parse(parts[0]), parts[1], int.Parse(parts[2]), bool.Parse(parts[3]), new Engine())
 
             {
                 TrainId = int.Parse(parts[0]),
@@ -85,32 +85,9 @@ namespace TrainEngine
             return Engine.IsRunning();
         }
 
-        public void AddPassengers(int amount)
-        {
-            PassengerCart.AddPassengers(amount);
+       
 
-            Console.WriteLine
-            (
-                $"{amount} passengers embarked train.\n" +
-                $"{GetPassengerAmount()} currently on train."
-            );
-
-        }
-
-        public void RemovePassengers(int amount)
-        {
-            PassengerCart.RemovePassengers(amount);
-            Console.WriteLine
-            (
-                $"{amount} passengers disembarked train.\n" +
-                $"{GetPassengerAmount()} currently on train."
-            );
-        }
-
-        public int GetPassengerAmount()
-        {
-            return PassengerCart.GetPassengerAmount();
-        }
+        
     }
 
 
