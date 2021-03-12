@@ -68,8 +68,16 @@ namespace TrainConsole
 
             // dt.TimeOfDay;
 
-            travel1.NewTrip(train1[1]).PrintAllPassengers();
-           
+
+
+            travel1.NewTrip(train1[1]);
+            travel1.SaveToFile();
+            travel1.Load();
+
+
+            //travel1.Load();
+
+
 
 
 
