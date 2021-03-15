@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TrainEngine
 {
-    class Engine : IEngine
+   public class Engine : IEngine
     {
         private bool isRunning;
 

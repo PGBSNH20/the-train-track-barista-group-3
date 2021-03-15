@@ -6,8 +6,7 @@ namespace TrainEngine
 {
     public interface ITravelPlane
     {       
-        ITravelPlane AddPassengerIdFromTo(int idFrom, int idTo, int trainId);
-        ITravelPlane PrintAllPassengers();
+       
         ITravelPlane NewTrip(Train train);       
     }
 }

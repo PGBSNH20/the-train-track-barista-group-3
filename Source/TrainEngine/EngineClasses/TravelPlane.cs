@@ -12,13 +12,13 @@ namespace TrainEngine
         private ClockSimulator clockSim = new ClockSimulator(100, 60);
         private List<Schedule> timeTable = Schedule.GetSchedule();
 
-        Dictionary<Passenger, int> passengerList = new Dictionary<Passenger, int>();
+        private List<Passenger> passengerList = new List<Passenger>();
         private List<Passenger> allPassengers = Passenger.GetPassenger();
         private List<Schedule> Save = new List<Schedule>();
         private List<Cart> Loaded = Cart.GetLoadedSchedule();
         private Cart CartToSave = new Cart();
         public bool Done = false;
-        public bool Finish = false;
+       
        
         public TravelPlane()
         {
@@ -26,23 +26,23 @@ namespace TrainEngine
             clockSim.StartClock();
         }
 
-        public ITravelPlane AddPassengerIdFromTo(int idFrom, int idTo, int trainId)
+        public List<Passenger> AddPassengerIdFromTo(int idFrom, int idTo)
         {
             var paxAdded = allPassengers.Where(x => x.PassengerId >= idFrom && x.PassengerId <= idTo);
             foreach (var item in paxAdded)
             {
-                passengerList.Add(item, trainId);
+                passengerList.Add(item );
             }
-            return this;
+            return passengerList;
         }
-        public ITravelPlane PrintAllPassengers()
+        public void PrintAllPassengers()
         {
-            foreach (KeyValuePair<Passenger, int> pax in passengerList)
+            foreach (var item in  passengerList)
             {
-                Console.WriteLine((pax.Key.PassengerId + ":" + pax.Key.LastName, $"train ID :{ pax.Value}"));
+                Console.WriteLine(item.PassengerId + ":" + item.LastName);
 
             }
-            return this;
+           
         }
 
         public ITravelPlane NewTrip(Train train)
@@ -51,6 +51,7 @@ namespace TrainEngine
             Thread trainThr = new Thread(() => Start(train, timeTable, clockSim));
             trainThr.Start();
             return this;
+           
         }
 
         public void Start(Train train, List<Schedule> timeTable, ClockSimulator clockSim)
@@ -92,10 +93,8 @@ namespace TrainEngine
            
         }
         public void Load( )
-        {
-           
-                CartToSave.Load(Loaded);
-                         
+        {         
+                CartToSave.Load(Loaded);                        
         }
 
     }
