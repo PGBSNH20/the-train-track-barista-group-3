@@ -17,7 +17,7 @@ namespace TrainEngine
         
 
 
-        const string FilePath = @"C:\Users\doman\OneDrive\Desktop\Railway\Source\TrainEngine\Data\timetable.txt";
+        const string FilePath = @"C:\Users\doman\OneDrive\Desktop\RailwayPro\Source\TrainEngine\Data\timetable.txt";
 
         public Schedule(int trainid,int depstationid, DateTime departuretime, int arrStationId, DateTime arrivaltime)
         {

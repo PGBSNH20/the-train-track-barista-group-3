@@ -14,11 +14,11 @@ namespace TrainEngine
 
         Dictionary<Passenger, int> passengerList = new Dictionary<Passenger, int>();
         private List<Passenger> allPassengers = Passenger.GetPassenger();
-        private List<Schedule> Saved = new List<Schedule>();
-        List<string> TrainIdSaved = new List<string>();
-
-        const string filePath = @"C:\Users\doman\OneDrive\Desktop\Railway\Source\TrainEngine\Data\SavedTrips.txt";
-
+        private List<Schedule> Save = new List<Schedule>();
+        private List<Cart> Loaded = Cart.GetLoadedSchedule();
+        private Cart CartToSave = new Cart();
+        
+       
         public TravelPlane()
         {
             clockSim.SetTime(new TimeSpan(10, 00, 00));
@@ -46,7 +46,7 @@ namespace TrainEngine
 
         public ITravelPlane NewTrip(Train train)
         {
-            TrainIdSaved.Add(train.TrainId.ToString());
+            
             Thread trainThr = new Thread(() => Start(train, timeTable, clockSim));
             trainThr.Start();
             return this;
@@ -54,16 +54,15 @@ namespace TrainEngine
 
         public void Start(Train train, List<Schedule> timeTable, ClockSimulator clockSim)
         {
-
-
             timeTable = timeTable.Where(x => x.TrainId == train.TrainId).ToList();
-
-
-
-
+            foreach (var item in timeTable)
+            {
+                Save.Add(item);
+                
+            }           
+            
             while (timeTable.Any())
             {
-
                 if (!train.IsRunning() && train.Operated == true && timeTable[0].DepartureTime.TimeOfDay <= clockSim.GetDateTime().TimeOfDay)
                 {
 
@@ -76,53 +75,22 @@ namespace TrainEngine
                     train.StopTrain();
                     Console.WriteLine($"Log {clockSim.TimeToString()} : {train.TrainName} : arriving at {Station.GetStation().Find(s => s.StationId == timeTable[0].ArrvStationId).StationName} station");
                     timeTable.Remove(timeTable[0]);
-                }
-            }
+                }                
+            }           
         }
-
-
 
 
         public void SaveToFile()
         {
-            // Create an empty list of text lines that we will fill with strings and then write to a textfile using `WriteAllLines`.
-            List<string> linesLinesToSave = new List<string>();
-
-
-            foreach (var item in TrainIdSaved)
+            while (!(Save.Count<0))
             {
-                linesLinesToSave.Add(item);
-            }
-
-
-            File.WriteAllLines(filePath, linesLinesToSave); ;
-            // For each product, we only save the code and the amount.
-            // The other info (name, price, description) is already in "Products.csv" and we can look it up when we load the cart.
-
-            Console.WriteLine("Din varukorg har sparats: ");
-            Console.WriteLine();
-            Console.WriteLine(ToString());
+                CartToSave.SaveToFile(Save);
+            }   
         }
-
-
         public void Load()
-        {
-            foreach (var item in TrainIdSaved)
-            {
-                Saved.Add(Schedule.GetSchedule().Find(x => x.TrainId == int.Parse(item)));
-            }
-
-            //timeTable = timeTable.Where(x => x.TrainId == train.TrainId).ToList();
-            // Saved = Saved.Where(x => x.TrainId == train.TrainId).ToList();
-            foreach (var item in Saved)
-            {
-                Console.WriteLine(item.TrainId +":"+ Train.GetTrain().Find(s => s.TrainId == item.TrainId).TrainName +":"+ item.DepartureTime.TimeOfDay+":"+ Station.GetStation().Find(s => s.StationId == item.DepStationId).StationName + ":"+ item.ArrivalTime.TimeOfDay+":"+ Station.GetStation().Find(s => s.StationId == item.ArrvStationId).StationName);
-            }
-            
-
-
-
-
+        {           
+                CartToSave.Load(Loaded);
         }
+
     }
 }

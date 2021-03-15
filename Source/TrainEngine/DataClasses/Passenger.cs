@@ -13,7 +13,7 @@ namespace TrainEngine
         public string FirstName { get; set; }
         public string LastName { get; set; }
 
-        const string FilePath = @"C:\Users\doman\OneDrive\Desktop\Railway\Source\TrainEngine\Data\passengers.txt";
+        const string FilePath = @"C:\Users\doman\OneDrive\Desktop\RailwayPro\Source\TrainEngine\Data\passengers.txt";
 
         public Passenger(int passengerid, string firstname, string lastname)
         {
