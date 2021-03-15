@@ -17,7 +17,8 @@ namespace TrainEngine
         private List<Schedule> Save = new List<Schedule>();
         private List<Cart> Loaded = Cart.GetLoadedSchedule();
         private Cart CartToSave = new Cart();
-        
+        public bool Done = false;
+        public bool Finish = false;
        
         public TravelPlane()
         {
@@ -76,20 +77,25 @@ namespace TrainEngine
                     Console.WriteLine($"Log {clockSim.TimeToString()} : {train.TrainName} : arriving at {Station.GetStation().Find(s => s.StationId == timeTable[0].ArrvStationId).StationName} station");
                     timeTable.Remove(timeTable[0]);
                 }                
-            }           
+            }
+            Done = true;
         }
 
 
         public void SaveToFile()
         {
-            while (!(Save.Count<0))
+            while (Done==false)
             {
                 CartToSave.SaveToFile(Save);
-            }   
+                
+            }
+           
         }
-        public void Load()
-        {           
+        public void Load( )
+        {
+           
                 CartToSave.Load(Loaded);
+                         
         }
 
     }

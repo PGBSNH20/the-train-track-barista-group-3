@@ -58,10 +58,22 @@ namespace TrainEngine
                 }
             }
             catch (Exception)
-            {             
+            {
+                
             }
 
-            File.WriteAllLines(FilePathSaved, linesLinesToSave);
+            try
+            {
+                File.WriteAllLines(FilePathSaved, linesLinesToSave);
+            }
+
+            catch (Exception)
+            {
+
+               
+            }
+
+            
         }
 
 
