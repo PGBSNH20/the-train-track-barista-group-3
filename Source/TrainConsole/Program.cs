@@ -19,9 +19,9 @@ namespace TrainConsole
            
             TravelPlane travel = new TravelPlane();           
             List<Train> train1 = Train.GetTrain();
-           // travel.NewTrip(train1[1]);
-           //travel.NewTrip(train1[2]);
-           // travel.Save();
+            travel.NewTrip(train1[1]);
+            travel.NewTrip(train1[2]);
+            travel.Save();
             travel.Load();
             
             Console.ReadKey();
