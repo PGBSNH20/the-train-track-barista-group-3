@@ -16,16 +16,19 @@ namespace TrainConsole
         static void Main(string[] args)
         {
                       
-            ClockSimulator sim = new ClockSimulator(100, 60);
+            ClockSimulator sim = new ClockSimulator(100,60);
             sim.StartClock();
-            TravelPlane travel1 = new TravelPlane();           
-            List<Train> train1 = Train.GetTrain();          
-            travel1.NewTrip(train1[1]);
+            TravelPlane travel = new TravelPlane();           
+            List<Train> train1 = Train.GetTrain();
+            travel.NewTrip(train1[1]);
+            travel.NewTrip(train1[2]);
+            
            
-           
-           // travel1.NewTrip(train1[2]);
-            //travel1.SaveToFile();
-            //travel1.Load();
+
+
+
+
+
 
             Console.ReadKey();
         }

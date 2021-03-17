@@ -16,20 +16,10 @@ namespace TrainEngine
         const string FilePath = @"C:\Users\doman\OneDrive\Desktop\RailwayPro\Source\TrainEngine\Data\passengers.txt";
         
 
-        public Passenger(int passengerid, string firstname, string lastname)
-        {
-            PassengerId = passengerid;
-            FirstName = firstname;
-            LastName = lastname;
-        }
-
-
-       
         public static Passenger CreateFromLine(string line)
         {
-
             string[] parts = line.Split(',',':',' ');
-            Passenger p = new Passenger(int.Parse(parts[0]), parts[1], parts[2])
+            Passenger p = new Passenger(/*int.Parse(parts[0]), parts[1], parts[2]*/)
             {
                 PassengerId = int.Parse(parts[0]),
                 FirstName = parts[1],

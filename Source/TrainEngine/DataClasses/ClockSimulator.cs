@@ -7,47 +7,43 @@ namespace TrainEngine
 {
     public class ClockSimulator
     {
-        private DateTime time;
-        public Thread clockRun;
-        public int secondsPerTick;
-        public int milliSecPerTick;
+        private DateTime Time;
+        public Thread ClockRun;
+        public int SecondsPerTick;
+        public int MilliSecPerTick;
         private bool Running=false;
         
 
 
-        public ClockSimulator(int milliecPertick , int secondspertick = 1, DateTime settime = new DateTime())
+        public ClockSimulator(int milliecPertick , int secondspertick , DateTime settime = new DateTime())
         {
-            time = settime;
-            milliSecPerTick = milliecPertick;
-            secondsPerTick = secondspertick;
+            Time = settime;
+            MilliSecPerTick = milliecPertick;
+            SecondsPerTick = secondspertick;
         }
 
         public void SetTime(TimeSpan timeOfDay)
         {
 
-            time = time.Date + timeOfDay;
-            //TimeSpan time = TimeSpan.Parse(timeToset);
-            //this.time = this.time.Date + time;
-
-
-            //time = time + timeToset;
+            Time = Time + timeOfDay;
+            
         }
 
         public void StartClock()
         {
             Running = true;
 
-            clockRun = new Thread(RunClock);
-            clockRun.Name = "clockRunThread";
-            clockRun.Start();
+            ClockRun = new Thread(RunClock);
+            ClockRun.Name = "clockRunThread";
+            ClockRun.Start();
         }
 
         public void RunClock()
         {           
                 while (Running)
                 {
-                    IncreaseSeconds(secondsPerTick);
-                    Thread.Sleep(milliSecPerTick);
+                    IncreaseSeconds(SecondsPerTick);
+                    Thread.Sleep(MilliSecPerTick);
                 }
    
         }
@@ -55,7 +51,7 @@ namespace TrainEngine
             private void IncreaseSeconds(int secondIncrease = 1)
             {
                 if (secondIncrease < 1) secondIncrease = 1;
-                this.time = time.AddSeconds(secondIncrease);
+                this.Time = Time.AddSeconds(secondIncrease);
             }
         
 
@@ -66,18 +62,13 @@ namespace TrainEngine
 
         public DateTime GetDateTime()
         {
-            return time;
+            return Time;
         }
 
         public string TimeToString()
         {
-            return time.ToShortTimeString();
+            return Time.ToShortTimeString();
         }
-
-        //public void PrintClock()
-        //{           
-        //  Console.WriteLine(TimeToString());                        
-        //}
 
         public bool IsRunning()
         {

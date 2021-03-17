@@ -67,17 +67,13 @@ namespace TrainEngine
 
 
         public void StartTrain()
-        {
-            
-                Engine.Start();
-           
-           // Console.WriteLine("Engine started.");
+        {           
+                Engine.Start();            
         }
 
         public void StopTrain()
         {
-            Engine.Stop();
-            //Console.WriteLine("Engine stopped.");
+            Engine.Stop();            
         }
 
         public bool IsRunning()

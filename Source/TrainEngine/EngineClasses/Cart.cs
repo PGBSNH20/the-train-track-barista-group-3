@@ -83,10 +83,10 @@ namespace TrainEngine
             foreach (var item in loaded.OrderBy(x => x.DepartureTime))
             {
               
-                Console.WriteLine(item.TrainId + ":" + Train.GetTrain().Find(s => s.TrainId == item.TrainId).TrainName + ":" + item.DepartureTime.TimeOfDay + ":" + Station.GetStation().Find(s => s.StationId == item.DepStationId).StationName + ":" + item.ArrivalTime.TimeOfDay + ":" + Station.GetStation().Find(s => s.StationId == item.ArrvStationId).StationName);
+                Console.WriteLine("Train:"+item.TrainId + "-" + Train.GetTrain().Find(s => s.TrainId == item.TrainId).TrainName + "-" + item.DepartureTime.TimeOfDay + "-"+"Departing from " + Station.GetStation().Find(s => s.StationId == item.DepStationId).StationName + "-" + item.ArrivalTime.TimeOfDay + "-"+"Arriving to " + Station.GetStation().Find(s => s.StationId == item.ArrvStationId).StationName);
             }
         }
-
+        
 
     }
 
